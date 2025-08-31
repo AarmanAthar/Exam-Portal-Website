@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 
-const port = 3020;
+const PORT = process.env.PORT || 3020;
 const app = express();
 
 
@@ -62,6 +62,6 @@ app.get('/questions',async (req,res)=>{
     res.send(users); */
 })
 
-app.listen(port,()=>{
-    console.log(`listening on port ${port}`);
+app.listen(PORT,()=>{
+    console.log(`listening on port ${PORT}`);
 })
