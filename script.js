@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3020";
+const API_URL = "https://exam-portal-website.onrender.com";
 
 let reload = 5;
 const reloadbtn = document.getElementById("loadQuestions")
