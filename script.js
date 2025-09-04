@@ -54,8 +54,23 @@ if (performance.getEntriesByType("navigation")[0].type === "reload") {
     window.location.href = "index.html"; // redirect to index
 }
 
+document.getElementById('download').addEventListener("click", async () => {
+    if (typeof html2pdf === "undefined") {
+        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js");
+    }
+    const element = document.getElementById("content");
+    html2pdf().from(element).save("webpage.pdf");
+});
 
-
+function loadScript(src){
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
 
 /* document.getElementById('userForm').addEventListener("submit",async (e) => {
     e.preventDefault()
